@@ -4,7 +4,12 @@ import { Link } from "react-router-dom";
 const LoginScreen = () => {
   return (
     <>
-      <div className="container valign-wrapper">
+      <div
+        className="container valign-wrapper"
+        style={{
+          marginTop: "10%",
+        }}
+      >
         <div className="row ">
           <div className="col s12">
             <div className="card ">
@@ -12,7 +17,7 @@ const LoginScreen = () => {
                 <div className="card-content">
                   <div className="center-align">
                     <img
-                      src="https://capevlac.olade.org/wp-content/uploads/2020/07/login.png"
+                      src="assets/login.png"
                       alt="imageLogin"
                       className="circle responsive-img"
                       style={{ height: "100px" }}
@@ -35,14 +40,16 @@ const LoginScreen = () => {
                         <label htmlFor="pass">Password</label>
                       </div>
                     </div>
-                    <div className="center-align">
-                      <button
-                        className="btn waves-effect waves-light"
-                        type="submit"
-                      >
-                        Login
-                        <i className="material-icons right">send</i>
-                      </button>
+
+                    <div className="row ">
+                      <div className="col s12">
+                        <button
+                          className="btn-large waves-effect waves-light col s12"
+                          type="submit"
+                        >
+                          Login
+                        </button>
+                      </div>
                     </div>
 
                     <GoogleButton
