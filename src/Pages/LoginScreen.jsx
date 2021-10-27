@@ -1,5 +1,6 @@
 import React from "react";
-
+import GoogleButton from "react-google-button";
+import { Link } from "react-router-dom";
 const LoginScreen = () => {
   return (
     <>
@@ -38,12 +39,25 @@ const LoginScreen = () => {
                       <button
                         className="btn waves-effect waves-light"
                         type="submit"
-                        name="action"
                       >
                         Login
                         <i className="material-icons right">send</i>
                       </button>
                     </div>
+
+                    <GoogleButton
+                      style={{
+                        marginTop: "20px",
+                        marginBottom: "20px",
+                        marginRight: "auto",
+                        marginLeft: "auto",
+                      }}
+                      disabled={false} // can also be written as disabled={true} for clarity
+                      onClick={() => {
+                        console.log("google");
+                      }}
+                    />
+                    <Link to="/register">Register in the plataform</Link>
                   </form>
                 </div>
               </div>
