@@ -1,7 +1,10 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { register } from "../Actions/AuthActions";
 
 const RegisterScreen = () => {
+  const dispatch = useDispatch();
   const [data, setData] = useState({
     email: "",
     password: "",
@@ -35,7 +38,7 @@ const RegisterScreen = () => {
         return;
       }
     }
-    console.log("form valid");
+    dispatch(register(email, password, username));
   };
 
   return (
