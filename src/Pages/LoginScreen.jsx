@@ -54,7 +54,7 @@ const LoginScreen = () => {
                 <div className="card-content">
                   <div className="center-align">
                     <img
-                      src="assets/login.png"
+                      src="/assets/login.png"
                       alt="imageLogin"
                       className="circle responsive-img"
                       style={{ height: "100px" }}
@@ -109,7 +109,7 @@ const LoginScreen = () => {
                       disabled={false} // can also be written as disabled={true} for clarity
                       onClick={_handleGoogleLogin}
                     />
-                    <Link to="/register">Register in the plataform</Link>
+                    <Link to="/auth/register">Register in the plataform</Link>
                   </form>
                 </div>
               </div>

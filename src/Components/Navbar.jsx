@@ -1,5 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import { logout } from "../Actions/AuthActions";
 
 const Navbar = () => {
@@ -12,16 +13,10 @@ const Navbar = () => {
     <>
       <nav className="blue-grey darken-1">
         <div className="nav-wrapper">
-          <a href="#" className="brand-logo">
+          <Link to="/app" className="brand-logo">
             Calcular Nómina
-          </a>
+          </Link>
           <ul id="nav-mobile" className="right hide-on-med-and-down">
-            <li>
-              <a href="sass.html">Sass</a>
-            </li>
-            <li>
-              <a href="badges.html">Components</a>
-            </li>
             <li>
               <button
                 onClick={_handleLogout}

@@ -57,7 +57,7 @@ const RegisterScreen = () => {
                 <div className="card-content">
                   <div className="center-align">
                     <img
-                      src="assets/login.png"
+                      src="/assets/login.png"
                       alt="imageLogin"
                       className="circle responsive-img"
                       style={{ height: "100px" }}
@@ -125,7 +125,7 @@ const RegisterScreen = () => {
                         </button>
                       </div>
                     </div>
-                    <Link to="/login">Login into account</Link>
+                    <Link to="/auth/login">Login into account</Link>
                   </form>
                 </div>
               </div>
