@@ -17,13 +17,27 @@ const RegisterScreen = () => {
       ...data,
       [e.target.name]: value,
     });
-
-    console.log(value);
   };
 
   const _handleRegister = (e) => {
     e.preventDefault();
+    if (email.trim() === "" || !email.trim().includes("@")) {
+      return;
+    }
+
+    if (username.trim().length < 2) {
+      return;
+    }
+    if (password.trim().length < 6) {
+      return;
+    } else {
+      if (password.trim() !== password2.trim()) {
+        return;
+      }
+    }
+    console.log("form valid");
   };
+
   return (
     <>
       <div
