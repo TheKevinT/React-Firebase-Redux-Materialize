@@ -1,7 +1,13 @@
 import React from "react";
 import GoogleButton from "react-google-button";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { googleLogin } from "../Actions/AuthActions";
 const LoginScreen = () => {
+  const dispatch = useDispatch();
+  const _handleGoogleLogin = () => {
+    dispatch(googleLogin("12345", "kevin"));
+  };
   return (
     <>
       <div
@@ -60,9 +66,7 @@ const LoginScreen = () => {
                         marginLeft: "auto",
                       }}
                       disabled={false} // can also be written as disabled={true} for clarity
-                      onClick={() => {
-                        console.log("google");
-                      }}
+                      onClick={_handleGoogleLogin}
                     />
                     <Link to="/register">Register in the plataform</Link>
                   </form>
