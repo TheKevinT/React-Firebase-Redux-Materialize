@@ -1,13 +1,44 @@
-import React from "react";
+import React, { useState } from "react";
 import GoogleButton from "react-google-button";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { googleLogin } from "../Actions/AuthActions";
+import { googleLogin, emailAndPasswordLogin } from "../Actions/AuthActions";
+
 const LoginScreen = () => {
+  const [data, setData] = useState({
+    email: "",
+    password: "",
+  });
+  const { email, password } = data;
+
+  const _handleChange = (e) => {
+    const value = e.target.value;
+
+    setData({
+      ...data,
+      [e.target.name]: value,
+    });
+  };
+
   const dispatch = useDispatch();
+
   const _handleGoogleLogin = () => {
     dispatch(googleLogin("12345", "kevin"));
   };
+
+  const _handleEmailLogin = (e) => {
+    e.preventDefault();
+
+    if (email.trim() === "" || !email.trim().includes("@")) {
+      return;
+    }
+
+    if (password.trim().length < 6) {
+      return;
+    }
+    dispatch(emailAndPasswordLogin(email, password));
+  };
+
   return (
     <>
       <div
@@ -29,7 +60,7 @@ const LoginScreen = () => {
                       style={{ height: "100px" }}
                     />
                   </div>
-                  <form>
+                  <form onSubmit={_handleEmailLogin}>
                     <div className="row">
                       <div className="input-field col s12">
                         <i className="material-icons prefix">email</i>
@@ -37,12 +68,22 @@ const LoginScreen = () => {
                           id="email_label"
                           type="email"
                           className="validate"
+                          onChange={_handleChange}
+                          value={email}
+                          name="email"
                         />
                         <label htmlFor="email_label">Email</label>
                       </div>
                       <div className="input-field col s12">
                         <i className="material-icons prefix">vpn_key</i>
-                        <input id="pass" type="password" className="validate" />
+                        <input
+                          id="pass"
+                          type="password"
+                          className="validate"
+                          onChange={_handleChange}
+                          value={password}
+                          name="password"
+                        />
                         <label htmlFor="pass">Password</label>
                       </div>
                     </div>

@@ -24,6 +24,7 @@ const RegisterScreen = () => {
 
   const _handleRegister = (e) => {
     e.preventDefault();
+
     if (email.trim() === "" || !email.trim().includes("@")) {
       return;
     }

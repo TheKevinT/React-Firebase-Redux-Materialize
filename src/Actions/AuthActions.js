@@ -11,6 +11,17 @@ export const googleLogin = () => {
       });
   };
 };
+export const emailAndPasswordLogin = (email, password) => {
+  return (dispatch) => {
+    firebase
+      .auth()
+      .signInWithEmailAndPassword(email, password)
+      .then(({ user }) => {
+        dispatch(login(user.uid, user.displayName));
+      });
+  };
+};
+
 export const register = (email, password, username) => {
   return (dispatch) => {
     firebase
