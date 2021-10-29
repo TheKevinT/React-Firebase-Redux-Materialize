@@ -45,7 +45,7 @@ const RegisterScreen = () => {
   return (
     <>
       <div
-        className="container valign-wrapper"
+        className="container valign-wrapper animate__animated animate__zoomIn"
         style={{
           marginTop: "10%",
         }}

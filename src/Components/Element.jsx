@@ -20,7 +20,7 @@ const Element = ({ data }) => {
   };
   return (
     <>
-      <tr>
+      <tr className="animate__animated animate__fadeInUp">
         <td>{fechaFormato}</td>
         <td>$ {pago}</td>
         <td>
