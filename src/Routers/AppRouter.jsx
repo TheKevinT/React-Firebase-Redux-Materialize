@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { Switch, BrowserRouter as Router } from "react-router-dom";
+import { Switch, BrowserRouter as Router, Redirect } from "react-router-dom";
 import AppScreen from "../Pages/AppScreen";
 import AuthRouter from "./AuthRouter";
 import PrivateRouter from "./PrivateRouter";
@@ -37,6 +37,7 @@ const AppRouter = () => {
           <PublicRouter path="/auth" component={AuthRouter} log={log} />
 
           <PrivateRouter exact path="/app" log={log} component={AppScreen} />
+          <Redirect to="/auth/login" />
         </Switch>
       </Router>
     </>
