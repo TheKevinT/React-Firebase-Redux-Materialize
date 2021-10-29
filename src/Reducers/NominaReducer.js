@@ -4,8 +4,11 @@ export const NominaReducer = (state = {}, action) => {
   switch (action.type) {
     case Types.nominaAdd:
       return {};
-    //   case Types.nominaAdd :
-    //   return {}
+    case Types.nominaRead:
+      return {
+        ...state,
+        data: action.payload,
+      };
     //   case Types.nominaAdd :
     //   return {}
     //   case Types.nominaAdd :

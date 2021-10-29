@@ -10,6 +10,7 @@ import { firebase } from "../firebase/config-firebase";
 import { login } from "../Actions/AuthActions";
 import PublicRouter from "./PublicRouter";
 import { loadData } from "../Helpers/LoadData";
+import { leerRegistros } from "../Actions/Nomina";
 
 const AppRouter = () => {
   const dispatch = useDispatch();
@@ -17,11 +18,13 @@ const AppRouter = () => {
   const [log, setLog] = useState(false);
 
   useEffect(() => {
-    firebase.auth().onAuthStateChanged((user) => {
+    firebase.auth().onAuthStateChanged(async (user) => {
       if (user) {
         dispatch(login(user.uid, user.displayName));
         setLog(true);
-        loadData(user.uid);
+        const nominaData = await loadData(user.uid);
+
+        dispatch(leerRegistros(nominaData));
       } else {
         setLog(false);
       }
