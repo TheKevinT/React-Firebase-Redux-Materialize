@@ -62,7 +62,7 @@ const FormAdd = () => {
                 name="hora"
               />
               <label className="active" htmlFor="canthora">
-                Ingrese Cantidad de Horas
+                Ingrese Horas Laboradas
               </label>
             </div>
 
