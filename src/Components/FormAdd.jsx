@@ -27,6 +27,10 @@ const FormAdd = () => {
   const _handleSave = () => {
     const cantidadFinal = hora * precioHora;
     dispatch(CrearRegistro(cantidadFinal));
+    setCantidadPago({
+      hora: 0,
+      precioHora: 0,
+    });
   };
 
   return (
