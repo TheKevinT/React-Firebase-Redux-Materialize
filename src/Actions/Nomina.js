@@ -10,13 +10,26 @@ export const CrearRegistro = (pago) => {
     };
     const referencia = await db.collection(`${uid}/nominas/nomina`).add(datos);
 
-    console.log(referencia);
+    const id = await referencia.id;
+    const newData = {
+      ...datos,
+      id,
+    };
+
+    dispatch(crear(newData));
   };
 };
 
 export const leerRegistros = (data) => {
   return {
     type: Types.nominaRead,
+    payload: data,
+  };
+};
+
+export const crear = (data) => {
+  return {
+    type: Types.nominaAdd,
     payload: data,
   };
 };

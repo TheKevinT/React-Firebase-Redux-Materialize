@@ -6,7 +6,10 @@ const initialState = {
 export const NominaReducer = (state = initialState, action) => {
   switch (action.type) {
     case Types.nominaAdd:
-      return {};
+      return {
+        ...state,
+        data: [...state.data, action.payload],
+      };
     case Types.nominaRead:
       return {
         ...state,
