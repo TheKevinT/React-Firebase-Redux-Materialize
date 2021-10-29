@@ -2,10 +2,15 @@ import React from "react";
 
 const Element = ({ data }) => {
   const { fecha, pago } = data;
+
+  const date = fecha.toDate();
+
+  const fechaFormato = date.toLocaleDateString();
+
   return (
     <>
       <tr>
-        <td>{new Date().setTime(fecha.seconds)}</td>
+        <td>{fechaFormato}</td>
         <td>{pago}</td>
         <td>
           <button className="btn red">
