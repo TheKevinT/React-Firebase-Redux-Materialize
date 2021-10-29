@@ -5,7 +5,7 @@ export const CrearRegistro = (pago) => {
   return async (dispatch, getState) => {
     const { uid } = getState().auth;
     const datos = {
-      fecha: new Date(),
+      fecha: new Date().toLocaleDateString(),
       pago,
     };
     const referencia = await db.collection(`${uid}/nominas/nomina`).add(datos);
