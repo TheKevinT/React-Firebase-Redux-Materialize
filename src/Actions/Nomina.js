@@ -1,12 +1,14 @@
 import { db } from "../firebase/config-firebase";
 
-export const CrearRegistro = () => {
-  return (dispatch, getState) => {
+export const CrearRegistro = (pago) => {
+  return async (dispatch, getState) => {
     const { uid } = getState().auth;
     const datos = {
       fecha: new Date(),
-      pago: 100.0,
+      pago,
     };
-    const referencia = db.collection(`${uid}/nominas/nomina`).add(datos);
+    const referencia = await db.collection(`${uid}/nominas/nomina`).add(datos);
+
+    console.log(referencia);
   };
 };
