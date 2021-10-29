@@ -1,6 +1,9 @@
 import { Types } from "../Types/Types";
 
-export const NominaReducer = (state = {}, action) => {
+const initialState = {
+  data: [],
+};
+export const NominaReducer = (state = initialState, action) => {
   switch (action.type) {
     case Types.nominaAdd:
       return {};
