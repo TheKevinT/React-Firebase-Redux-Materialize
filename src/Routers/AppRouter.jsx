@@ -9,6 +9,7 @@ import { firebase } from "../firebase/config-firebase";
 
 import { login } from "../Actions/AuthActions";
 import PublicRouter from "./PublicRouter";
+import { loadData } from "../Helpers/LoadData";
 
 const AppRouter = () => {
   const dispatch = useDispatch();
@@ -20,6 +21,7 @@ const AppRouter = () => {
       if (user) {
         dispatch(login(user.uid, user.displayName));
         setLog(true);
+        loadData(user.uid);
       } else {
         setLog(false);
       }
