@@ -22,7 +22,7 @@ const Element = ({ data }) => {
     <>
       <tr>
         <td>{fechaFormato}</td>
-        <td>{pago}</td>
+        <td>$ {pago}</td>
         <td>
           <button className="btn red" onClick={_handleDelete}>
             <i className="material-icons">delete</i>
